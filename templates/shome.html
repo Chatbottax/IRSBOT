@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Tax Resolution Assistant</title>
+    <style>
+        #chatbot-interface {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        #chat-area {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="has-text-align-center">Your Tax Resolution Assistant</h1>
+    <div id="chatbot-interface">
+        <div id="chat-area"></div>
+        <input type="text" id="user-input" placeholder="Type your question here...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function sendMessage() {
+            var userMessage = $('#user-input').val();
+
+            $.ajax({
+                url: '/chat',
+                data: JSON.stringify({ 'message': userMessage }),
+                type: 'POST',
+                contentType: 'application/json',
+                success: function(response) {
+                    $('#chat-area').append('<p>User: ' + userMessage + '</p>');
+                    $('#chat-area').append('<p>Sarah: ' + response.message + '</p>');
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+            $('#user-input').val('');
+        }
+    </script>
+</body>
+</html>
