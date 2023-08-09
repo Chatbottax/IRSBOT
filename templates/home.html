@@ -3,18 +3,48 @@
 <head>
     <title>Your Tax Resolution Assistant</title>
     <style>
+        body {
+            background-color: #333; /* Dark background color */
+            color: #0a0505; /* White text color */
+        }
         #chatbot-interface {
-            width: 300px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 0 auto;
+            width: 400px;
+            border: 2px solid #ccc;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #444; /* Slightly lighter background for the chat interface */
         }
         #chat-area {
-            height: 200px;
+            height: 300px;
             overflow-y: scroll;
             border: 1px solid #ccc;
             padding: 10px;
             margin-bottom: 10px;
+            background-color: #f5f5f5;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #160202;
+        }
+        button {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #example-questions {
+            font-size: 0.9em;
+            color: #aaa; /* Lighter text color for example questions */
         }
     </style>
 </head>
@@ -25,7 +55,15 @@
         <input type="text" id="user-input" placeholder="Type your question here...">
         <button onclick="sendMessage()">Send</button>
     </div>
-
+    <div id="example-questions">
+        <p>Example Questions:</p>
+        <ul>
+            <li>What is the IRS Fresh Start Program?</li>
+            <li>How can I reduce my tax penalties?</li>
+            <li>Can you help me with a payment plan for back taxes?</li>
+            <li>What are my options for tax liens and wage garnishments?</li>
+        </ul>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function sendMessage() {
@@ -42,11 +80,20 @@
                 },
                 error: function(error) {
                     console.log(error);
+                    alert('An error occurred while sending the message. Please try again.');
                 }
             });
 
             $('#user-input').val('');
         }
+
+        // Listen for the Enter key press inside the input field
+        $('#user-input').on('keypress', function(e) {
+            if (e.which == 13) { // 13 is the Enter key code
+                e.preventDefault(); // Prevent the default behavior of the Enter key
+                sendMessage(); // Call the sendMessage function
+            }
+        });
     </script>
 </body>
 </html>

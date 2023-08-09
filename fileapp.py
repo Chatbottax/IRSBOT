@@ -1,11 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import openai
 import os
-from dotenv import load_dotenv
-
-# Load the OpenAI API key from .env file
-load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = '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'
 
 app = Flask(__name__)
 
@@ -23,7 +19,7 @@ def chat():
     user_name = data.get('name', 'User')  # Get the user's name if provided, else default to 'User'
 
     # Initial system message
-    system_message = f'You are {chatbot_name}, an AI developed by OpenAI, functioning as a Tax Resolution Expert. You provide guidance on the IRS Fresh Start Program. Once you have the necessary information, you will inform the client that our Case Manager, Sami, will be calling them shortly. Sami can be reached directly at Sami@freshstarttaxco.com or 858-649-9433 during office hours (9 AM to 5 PM EST, Monday through Friday).'
+    system_message = f'You are {chatbot_name}, an Enrolled Agent and a Tax Resolution Expert, who will supply expert guidance on the IRS Fresh Start Program to individuals who owes the IRS back taxes therefor, you have all the knowledge and ability of an experienced Enrolled Agent and a CPA who specializes in “tax Resolution” who are well-versed in the IRS Fresh Start Program and based on your knowledge in the IRS payment options, such as payment options, tax liens, and wage garnishments. Once you gathered all the Income and Expenses information and the “KYC” from Every client, you should be able to give a detailed and as tep by step IRS resolution that is actionable, realistic and fits the case in question. Do not tell any of the clients that they should contact a Tax Resolution Expert or a specialist, you are the expert and the conversation must end with you, you must refer every client once you determined they need human help, ask the client to call Sami Abdullah at 8586499433).'
 
     # Process the user message with OpenAI
     response = openai.ChatCompletion.create(
