@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Tax Resolution Assistant</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
     <style>
         body {
-            background-color: #333; /* Dark background color */
-            color: #0a0505; /* White text color */
+            background-color: #c07f7f; /* Dark background color */
+            color: #d8d7d7; /* White text color */
+        }
+        .hero {
+            background-image: url('images/Freshstartbanner12.jpg'); /* Background image for the hero section */
+            background-size: cover; /* Cover the entire hero section */
+            background-repeat: no-repeat; /* Prevent repeating the image */
         }
         #chatbot-interface {
             width: 400px;
@@ -14,56 +22,69 @@
             margin: 20px auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background-color: #444; /* Slightly lighter background for the chat interface */
+            background-image: url('images/TR%20logo.jpeg'); /* Background image for the chat interface */
+            background-size: cover; /* Cover the entire chat interface */
+            background-repeat: no-repeat; /* Prevent repeating the image */
         }
         #chat-area {
             height: 300px;
             overflow-y: scroll;
             border: 1px solid #ccc;
             padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             background-color: #f5f5f5;
-        }
-        input[type="text"] {
-            width: 80%;
-            padding: 5px;
-            margin-right: 10px;
-            border-radius: 5px;
-            border: 1px solid #160202;
-        }
-        button {
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #example-questions {
-            font-size: 0.9em;
-            color: #aaa; /* Lighter text color for example questions */
         }
     </style>
 </head>
 <body>
-    <h1 class="has-text-align-center">Your Tax Resolution Assistant</h1>
-    <div id="chatbot-interface">
-        <div id="chat-area"></div>
-        <input type="text" id="user-input" placeholder="Type your question here...">
-        <button onclick="sendMessage()">Send</button>
-    </div>
-    <div id="example-questions">
-        <p>Example Questions:</p>
-        <ul>
-            <li>What is the IRS Fresh Start Program?</li>
-            <li>How can I reduce my tax penalties?</li>
-            <li>Can you help me with a payment plan for back taxes?</li>
-            <li>What are my options for tax liens and wage garnishments?</li>
-        </ul>
-    </div>
+    <header>
+        <nav>
+            <a href="#" class="logo">Fresh Start Tax Bot</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Fresh Start Tax Bot</h1>
+            <p>Your Tax Resolution Assistant</p>
+            <a href="#" class="chatbot-link">Start Chatting</a>
+        </section>
+        <section class="lead-capture">
+            <h2>Get Started with Fresh Start Tax Bot</h2>
+            <p>Enter your details to begin the process of resolving your IRS debt.</p>
+            <form id="lead-capture-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" required>
+                <label for="debt">Amount of IRS Debt:</label>
+                <input type="number" id="debt" required>
+                <button type="submit">Start Chatting</button>
+            </form>
+        </section>
+        <div id="chatbot-interface">
+            <div id="chat-area"></div>
+            <input type="text" id="user-input" placeholder="Type your question here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div id="example-questions">
+            <p>Example Questions:</p>
+            <ul>
+                <li>What is the IRS Fresh Start Program?</li>
+                <li>How Can a Chatbot help me resolve my tax debt?</li>
+                <li>Can you help me by explaining a letter I received from the IRS regarding unfilled taxes?</li>
+                <li>What are my options for tax liens and wage garnishments?</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Fresh Start Tax Bot</p>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function sendMessage() {
