@@ -1,113 +1,126 @@
-<!-- wp:html -->
-<div class="fresh-start-tax-bot">
-    <style>
-        body {
-            background-color: #fdfefd1b; /* Dark background color */
-            color: #3b0202; /* White text color */
-        }
-        .hero {
-            background-image: url('images/Freshstartbanner12.jpg'); /* Background image for the hero section */
-            background-size: cover; /* Cover the entire hero section */
-            background-repeat: no-repeat; /* Prevent repeating the image */
-        }
-        #chatbot-interface {
-            width: 400px;
-            border: 2px solid #3a3636;
-            padding: 15px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(185, 1, 1, 0.1);
-            background-image: url('images/favicon.ico'); /* Background image for the chat interface */
-            background-size: cover; /* Cover the entire chat interface */
-            background-repeat: no-repeat; /* Prevent repeating the image */
-        }
-        #chat-area {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid #060606;
-            padding: 10px;
-            margin-bottom: 15px;
-            background-color: #f6f8f8;
-        }
-    </style>
-    <header>
-        <nav>
-            <a href="#" class="logo">Fresh Start Tax Bot</a>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <h2>Welcome to Fresh Start Tax Bot</h2>
-            <p>Your Tax Resolution Assistant</p>
-            <a href="#" class="chatbot-link">Start Chatting</a>
-        </section>
-        <section class="lead-capture">
-            <h2>Get Started with Fresh Start Tax Bot</h2>
-            <p>Enter your details to begin the process of resolving your IRS debt.</p>
-            <form id="lead-capture-form">
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" required>
-                <label for="debt">Amount of IRS Debt:</label>
-                <input type="number" id="debt" required>
-                <button type="submit">Start Chatting</button>
-            </form>
-        </section>
-        <div id="chatbot-interface">
-            <div id="chat-area"></div>
-            <input type="text" id="user-input" placeholder="Type your question here...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-        <div id="example-questions">
-            <p>Example Questions:</p>
-            <ul>
-                <li>What is the IRS Fresh Start Program?</li>
-                <li>How Can a Chatbot help me resolve my tax debt?</li>
-                <li>Can you help me by explaining a letter I received from the IRS regarding unfilled taxes?</li>
-                <li>What are my options for tax liens and wage garnishments?</li>
-            </ul>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 Fresh Start Tax Bot</p>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        function sendMessage() {
-            var userMessage = $('#user-input').val();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fresh Start Tax Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- New WordPress block-based HTML code -->
+    <div class="wp-block-group has-primary-background-color has-background">
+        <main class="wp-block-query alignfull">
+            <div class="wp-block-cover alignfull is-light has-parallax">
+                <span aria-hidden="true" class="wp-block-cover__background has-background-dim"></span>
+                <div class="wp-block-cover__inner-container">
+                    <p>Your Tax Resolution Assistant! Experience Personalized Guidance with Fresh Start Tax Bot! Powered by OpenAI's GPT-3.5 Turbo model.</p>
+                    <h1>Welcome to Fresh Start Tax Bot</h1>
+                </div>
+            </div>
+        </main>
+    </div>
 
-            $.ajax({
-                url: '/chat',
-                data: JSON.stringify({ 'message': userMessage }),
-                type: 'POST',
-                contentType: 'application/json',
-                success: function(response) {
-                    $('#chat-area').append('<p>User: ' + userMessage + '</p>');
-                    $('#chat-area').append('<p>Sarah: ' + response.message + '</p>');
-                },
-                error: function(error) {
-                    console.log(error);
-                    alert('An error occurred while sending the message. Please try again.');
-                }
-            });
-
-            $('#user-input').val('');
-        }
-
-        // Listen for the Enter key press inside the input field
-        $('#user-input').on('keypress', function(e) {
-            if (e.which == 13) { // 13 is the Enter key code
-                e.preventDefault(); // Prevent the default behavior of the Enter key
-                sendMessage(); // Call the sendMessage function
+    <!-- Existing chatbot interface and other sections -->
+    <div class="fresh-start-tax-bot">
+        <style>
+            /* Existing styles */
+            body {
+                background-color: #fdfefd1b;
+                color: #3b0202;
             }
-        });
-    </script>
-</div>
-<!-- /wp:html -->
+            .hero {
+                background-image: url('images/Freshstartbanner12.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            #chatbot-interface {
+                width: 400px;
+                border: 2px solid #3a3636;
+                padding: 15px;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(185, 1, 1, 0.1);
+                background-image: url('images/favicon.ico');
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            #chat-area {
+                height: 300px;
+                overflow-y: scroll;
+                border: 1px solid #060606;
+                padding: 10px;
+                margin-bottom: 15px;
+                background-color: #f6f8f8;
+            }
+        </style>
+        <header>
+            <nav>
+                <a href="#" class="logo">Fresh Start Tax Bot</a>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="hero">
+                <h2>Welcome to Fresh Start Tax Bot</h2>
+                <p>Your Tax Resolution Assistant</p>
+                <a href="#" class="chatbot-link">Start Chatting</a>
+            </section>
+            <section class="lead-capture">
+                <h2>Get Started with Fresh Start Tax Bot</h2>
+                <p>Enter your details to begin the process of resolving your IRS debt.</p>
+                <form id="lead-capture-form">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+                    <label for="debt">Amount of IRS Debt:</label>
+                    <input type="number" id="debt" required>
+                    <button type="submit">Start Chatting</button>
+                </form>
+            </section>
+            <div id="chatbot-interface">
+                <div id="chat-area"></div>
+                <input type="text" id="user-input" placeholder="Type your question here...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+            <div id="example-questions">
+                <p>Example Questions:</p>
+                <ul>
+                    <li>What is the IRS Fresh Start Program?</li>
+                    <li>How Can a Chatbot help me resolve my tax debt?</li>
+                    <li>Can you help me by explaining a letter I received from the IRS regarding unfilled taxes?</li>
+                    <li>What are my options for tax liens and wage garnishments?</li>
+                </ul>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Fresh Start Tax Bot</p>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function sendMessage() {
+                var userMessage = $('#user-input').val();
+                $.ajax({
+                    url: '/chat',
+                    data: JSON.stringify({ 'message': userMessage }),
+                    type: 'POST',
+                    contentType: 'application/json',
+                    success: function(response) {
+                        $('#chat-area').append('<p>User: ' + userMessage + '</p>');
+                        $('#chat-area').append('<p>Sarah: ' + response.message + '</p>');
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        alert('An error occurred while sending the message. Please try again.');
+                    }
+                });
+                $('#user-input').val('');
+            }
+        </script>
+    </div>
+</body>
+</html>

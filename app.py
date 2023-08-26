@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 import openai
+from flask_cors import CORS
 import os
 
 openai.api_key = os.environ.get('OPENAI_API_KEY')
