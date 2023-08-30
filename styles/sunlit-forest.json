@@ -1,0 +1,56 @@
+{
+	"title": "Sunlit Forest",
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"custom": true,
+			"customGradient": true,
+			"palette": [
+				{
+					"color": "#f2a307",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#575757",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#154f1c",
+					"name": "Foreground",
+					"slug": "foreground"
+				},
+				{
+					"color": "#ffffff",
+					"name": "Background",
+					"slug": "background"
+				},
+				{
+					"color": "#f7f7f3",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				}
+			]
+		}
+	},
+	"templateParts": [
+		{
+			"area": "header",
+			"name": "header",
+			"title": "Header"
+		},
+		{
+			"area": "footer",
+			"name": "footer",
+			"title": "Footer"
+		},
+		{
+			"area": "uncategorized",
+			"name": "post-meta",
+			"title": "Post Meta"
+		}
+	],
+	"version": 2,
+	"$schema": "https://schemas.wp.org/trunk/theme.json"
+}

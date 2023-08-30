@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresh Start Tax Bot</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Fresh Start Tax Bot helps you with IRS Fresh Start Program, Tax Resolution, and Tax Relief.">
+    <meta name="keywords" content="IRS Fresh Start Program, Tax Resolution, Tax Relief, Chatbot">
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "name": "Fresh Start Tax Bot",
+          "url": "https://www.freshstarttaxbot.com",
+          "description": "Fresh Start Tax Bot helps you with IRS Fresh Start Program, Tax Resolution, and Tax Relief.",
+          "keywords": "IRS Fresh Start Program, Tax Resolution, Tax Relief, Chatbot"
+        }
+    </script>       
 </head>
 <body>
-    <!-- New WordPress block-based HTML code -->
+    <!-- WordPress block-based HTML code -->
     <div class="wp-block-group has-primary-background-color has-background">
         <main class="wp-block-query alignfull">
             <div class="wp-block-cover alignfull is-light has-parallax">
@@ -18,7 +31,6 @@
             </div>
         </main>
     </div>
-
     <!-- Existing chatbot interface and other sections -->
     <div class="fresh-start-tax-bot">
         <style>
@@ -28,7 +40,6 @@
                 color: #3b0202;
             }
             .hero {
-                background-image: url('images/Freshstartbanner12.jpg');
                 background-size: cover;
                 background-repeat: no-repeat;
             }
@@ -39,7 +50,6 @@
                 margin: 20px auto;
                 border-radius: 10px;
                 box-shadow: 0 4px 6px rgba(185, 1, 1, 0.1);
-                background-image: url('images/favicon.ico');
                 background-size: cover;
                 background-repeat: no-repeat;
             }
@@ -49,9 +59,9 @@
                 border: 1px solid #060606;
                 padding: 10px;
                 margin-bottom: 15px;
-                background-color: #f6f8f8;
+                background-color: #4aa5a5;
             }
-        </style>
+                </style>
         <header>
             <nav>
                 <a href="#" class="logo">Fresh Start Tax Bot</a>
@@ -119,9 +129,24 @@
                         alert('An error occurred while sending the message. Please try again.');
                     }
                 });
-                $('#user-input').val('');
             }
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                const chatbotLink = document.querySelector(".chatbot-link");
+                const chatbotInterface = document.getElementById("chatbot-interface");
+        
+                chatbotLink.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    chatbotInterface.scrollIntoView({ behavior: "smooth" });
+                });
+            });
         </script>
-    </div>
+        
 </body>
 </html>
+
+
+
+
+
+

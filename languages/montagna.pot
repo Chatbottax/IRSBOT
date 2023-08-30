@@ -1,0 +1,224 @@
+# Copyright (C) 2023 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Montagna 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/montagna\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-07-22T02:46:12+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: montagna\n"
+
+#. Theme Name of the theme
+msgid "Montagna"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://wordpress.com/theme/montagna/"
+msgstr ""
+
+#. Description of the theme
+msgid "A WordPress theme for travel-related websites and blogs designed to showcase stunning destinations around the world."
+msgstr ""
+
+#. Author of the theme
+msgid "Automattic"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://automattic.com/"
+msgstr ""
+
+#: patterns/home.php
+msgctxt "Pattern title"
+msgid "Home"
+msgstr ""
+
+#: patterns/home.php:15
+msgid "Adventure<br>Awaits"
+msgstr ""
+
+#: patterns/home.php:20
+#: patterns/home.php:194
+msgid "Learn More"
+msgstr ""
+
+#: patterns/home.php:33
+msgid "Explore the world with us"
+msgstr ""
+
+#: patterns/home.php:43
+msgid "We believe that travel is about creating memories that last a lifetime. Our trips are designed to leave a lasting impression."
+msgstr ""
+
+#: patterns/home.php:52
+msgid "Road Trips"
+msgstr ""
+
+#: patterns/home.php:64
+msgid "Skiing"
+msgstr ""
+
+#: patterns/home.php:76
+msgid "Tropical Gateways"
+msgstr ""
+
+#: patterns/home.php:92
+msgid "A travel company that does things differently"
+msgstr ""
+
+#: patterns/home.php:99
+msgid "We believe that travel is about creating unforgettable memories. Our trips are designed to leave a lasting impression."
+msgstr ""
+
+#: patterns/home.php:128
+#: patterns/home.php:143
+#: patterns/home.php:158
+msgid "This is a group of blocks in columns. Column layouts can be adapted to fit different needs."
+msgstr ""
+
+#: patterns/home.php:132
+#: patterns/home.php:147
+#: patterns/home.php:162
+msgid "Learn more"
+msgstr ""
+
+#: patterns/home.php:139
+msgid "Professionalism"
+msgstr ""
+
+#: patterns/home.php:154
+msgid "Expertise"
+msgstr ""
+
+#: patterns/home.php:173
+msgid "The personalized attention and expert recommendations made all the difference, and our trip was truly unforgettable."
+msgstr ""
+
+#: patterns/home.php:189
+msgid "Get 20% Off Your First Trip"
+msgstr ""
+
+#: styles/copper-coast.json
+msgctxt "Style variation name"
+msgid "Copper Coast"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Color name"
+msgid "Foreground"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Font family name"
+msgid "System Font"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Font size name"
+msgid "X-large"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Font size name"
+msgid "XX-large"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: styles/copper-coast.json
+#: styles/ocean-blue.json
+#: styles/sunlit-forest.json
+#: theme.json
+msgctxt "Template part name"
+msgid "Post Meta"
+msgstr ""
+
+#: styles/ocean-blue.json
+msgctxt "Style variation name"
+msgid "Ocean Blue"
+msgstr ""
+
+#: styles/sunlit-forest.json
+msgctxt "Style variation name"
+msgid "Sunlit Forest"
+msgstr ""
