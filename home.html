@@ -34,34 +34,57 @@
     <!-- Existing chatbot interface and other sections -->
     <div class="fresh-start-tax-bot">
         <style>
-            /* Existing styles */
-            body {
-                background-color: #fdfefd1b;
-                color: #3b0202;
-            }
-            .hero {
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-            #chatbot-interface {
-                width: 400px;
-                border: 2px solid #3a3636;
-                padding: 15px;
-                margin: 20px auto;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(185, 1, 1, 0.1);
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-            #chat-area {
-                height: 300px;
-                overflow-y: scroll;
-                border: 1px solid #060606;
-                padding: 10px;
-                margin-bottom: 15px;
-                background-color: #4aa5a5;
-            }
-                </style>
+           /* Existing styles */
+body {
+    background-color: #fdfefd1b;
+    color: #3b0202;
+}
+.hero {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#chatbot-interface {
+    width: 400px;
+    border: 2px solid #3a3636;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(185, 1, 1, 0.1);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#chat-area {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #060606;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #4aa5a5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Bubble Styles */
+.chat-bubble {
+    max-width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+.chat-bubble-user {
+    background-color: #e6e6e6;
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.chat-bubble-sarah {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+    </style>
         <header>
             <nav>
                 <a href="#" class="logo">Fresh Start Tax Bot</a>
@@ -113,23 +136,23 @@
         </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
-            function sendMessage() {
-                var userMessage = $('#user-input').val();
-                $.ajax({
-                    url: '/chat',
-                    data: JSON.stringify({ 'message': userMessage }),
-                    type: 'POST',
-                    contentType: 'application/json',
-                    success: function(response) {
-                        $('#chat-area').append('<p>User: ' + userMessage + '</p>');
-                        $('#chat-area').append('<p>Sarah: ' + response.message + '</p>');
-                    },
-                    error: function(error) {
-                        console.log(error);
-                        alert('An error occurred while sending the message. Please try again.');
-                    }
-                });
-            }
+   function sendMessage() {
+    var userMessage = $('#user-input').val();
+    $.ajax({
+        url: '/chat',
+        data: JSON.stringify({ 'message': userMessage }),
+        type: 'POST',
+        contentType: 'application/json',
+        success: function(response) {
+            $('#chat-area').append('<div class="chat-bubble chat-bubble-user">User: ' + userMessage + '</div>');
+            $('#chat-area').append('<div class="chat-bubble chat-bubble-sarah">Sarah: ' + response.message + '</div>');
+        },
+        error: function(error) {
+            console.log(error);
+            alert('An error occurred while sending the message. Please try again.');
+        }
+    });
+}
             
             document.addEventListener("DOMContentLoaded", function() {
                 const chatbotLink = document.querySelector(".chatbot-link");
