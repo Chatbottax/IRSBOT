@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresh Start Tax Bot</title>
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Fresh Start Tax Bot helps you with IRS Fresh Start Program, Tax Resolution, and Tax Relief.">
     <meta name="keywords" content="IRS Fresh Start Program, Tax Resolution, Tax Relief, Chatbot">
     <script type="application/ld+json">
@@ -16,10 +15,78 @@
           "description": "Fresh Start Tax Bot helps you with IRS Fresh Start Program, Tax Resolution, and Tax Relief.",
           "keywords": "IRS Fresh Start Program, Tax Resolution, Tax Relief, Chatbot"
         }
-    </script>       
+    </script>
+    <style>
+        body {
+            background-color: #fdfefd;
+            color: #3b0202;
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #chatbot-interface {
+            width: 400px;
+            border: 2px solid #3a3636;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(185, 1, 1, 0.1);
+            background-color: #ffffff;
+        }
+        #chat-area {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #060606;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-bubble {
+            max-width: 80%;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 15px;
+            line-height: 1.4;
+        }
+        .chat-bubble-user {
+            background-color: #e6e6e6;
+            align-self: flex-start;
+        }
+        .chat-bubble-bot {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+        #user-input {
+            width: calc(100% - 60px);
+            padding: 5px;
+            margin-right: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #quick-questions button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <!-- WordPress block-based HTML code -->
     <div class="wp-block-group has-primary-background-color has-background">
         <main class="wp-block-query alignfull">
             <div class="wp-block-cover alignfull is-light has-parallax">
@@ -31,145 +98,50 @@
             </div>
         </main>
     </div>
-    <!-- Existing chatbot interface and other sections -->
-    <div class="fresh-start-tax-bot">
-        <style>
-           /* Existing styles */
-body {
-    background-color: #fdfefd1b;
-    color: #3b0202;
-}
-.hero {
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-#chatbot-interface {
-    width: 400px;
-    border: 2px solid #3a3636;
-    padding: 15px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(185, 1, 1, 0.1);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-#chat-area {
-    height: 300px;
-    overflow-y: scroll;
-    border: 1px solid #060606;
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color: #4aa5a5;
-    display: flex;
-    flex-direction: column;
-}
+    <div id="chatbot-interface">
+        <div id="chat-area" class="chat-area"></div>
+        <input type="text" id="user-input" placeholder="Ask me anything...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id="quick-questions">
+        <button onclick="askQuestion('What is the IRS Fresh Start Program?')">What is the IRS Fresh Start Program?</button>
+        <button onclick="askQuestion('How Can a Chatbot help me resolve my tax debt?')">How Can a Chatbot help me resolve my tax debt?</button>
+        <button onclick="askQuestion('Can you help me by explaining a letter I received from the IRS regarding unfilled taxes?')">Can you help me by explaining a letter I received from the IRS regarding unfilled taxes?</button>
+        <button onclick="askQuestion('What are my options for tax liens and wage garnishments?')">What are my options for tax liens and wage garnishments?</button>
+    </div>
+    <script>
+        $(document).ready(function() {
+            function sendMessage() {
+                var userMessage = $('#user-input').val();
+                if (userMessage.trim() === "") return;
+                
+                $('#chat-area').append('<div class="chat-bubble chat-bubble-user">' + userMessage + '</div>');
+                $('#user-input').val('');
 
-/* Chat Bubble Styles */
-.chat-bubble {
-    max-width: 80%;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 15px;
-}
-
-.chat-bubble-user {
-    background-color: #e6e6e6;
-    align-self: flex-start;
-    margin-right: auto;
-}
-
-.chat-bubble-sarah {
-            background-color: #007bff;
-            color: white;
-            align-self: flex-end;
-            margin-left: auto;
-        }
-    </style>
-        <header>
-            <nav>
-                <a href="#" class="logo">Fresh Start Tax Bot</a>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section class="hero">
-                <h2>Welcome to Fresh Start Tax Bot</h2>
-                <p>Your Tax Resolution Assistant</p>
-                <a href="#" class="chatbot-link">Start Chatting</a>
-            </section>
-            <section class="lead-capture">
-                <h2>Get Started with Fresh Start Tax Bot</h2>
-                <p>Begin the process of resolving your IRS debt by providing your details below.</p>
-                <form id="lead-capture-form">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" required>
-                    <label for="debt">Amount of IRS Debt:</label>
-                    <input type="number" id="debt" required>
-                    <button type="submit">Start Chatting</button>
-                </form>
-            </section>
-            <div id="chatbot-interface">
-                <div id="chat-area"></div>
-                <input type="text" id="user-input" placeholder="Type your question here...">
-                <button onclick="sendMessage()">Send</button>
-            </div>
-            <div id="example-questions">
-                <p>Example Questions:</p>
-                <ul>
-                    <li>What is the IRS Fresh Start Program?</li>
-                    <li>How Can a Chatbot help me resolve my tax debt?</li>
-                    <li>Can you help me by explaining a letter I received from the IRS regarding unfilled taxes?</li>
-                    <li>What are my options for tax liens and wage garnishments?</li>
-                </ul>
-            </div>
-             </div>
-        </main>
-        <footer>
-            <p>&copy; 2023 Fresh Start Tax Bot</p>
-        </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-   function sendMessage() {
-    var userMessage = $('#user-input').val();
-    $.ajax({
-        url: '/chat',
-        data: JSON.stringify({ 'message': userMessage }),
-        type: 'POST',
-        contentType: 'application/json',
-        success: function(response) {
-            $('#chat-area').append('<div class="chat-bubble chat-bubble-user">User: ' + userMessage + '</div>');
-            $('#chat-area').append('<div class="chat-bubble chat-bubble-sarah">Sarah: ' + response.message + '</div>');
-        },
-        error: function(error) {
-            console.log(error);
-            alert('An error occurred while sending the message. Please try again.');
-        }
-    });
-}
-            
-            document.addEventListener("DOMContentLoaded", function() {
-                const chatbotLink = document.querySelector(".chatbot-link");
-                const chatbotInterface = document.getElementById("chatbot-interface");
-        
-                chatbotLink.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    chatbotInterface.scrollIntoView({ behavior: "smooth" });
+                $.ajax({
+                    url: '/chat',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ message: userMessage }),
+                    success: function(response) {
+                        $('#chat-area').append('<div class="chat-bubble chat-bubble-bot">' + response.message + '</div>');
+                        $('#chat-area').scrollTop($('#chat-area')[0].scrollHeight);
+                    },
+                    error: function() {
+                        alert('Failed to send message');
+                    }
                 });
-            });
-        </script>
-        
+            }
+
+            window.sendMessage = sendMessage; // Make the function accessible globally
+
+            function askQuestion(question) {
+                $('#user-input').val(question);
+                sendMessage();
+            }
+
+            window.askQuestion = askQuestion; // Make the function accessible globally
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-

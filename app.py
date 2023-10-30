@@ -14,7 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Name of the chatbot
-chatbot_name = "Tax Resolution Assistant"
+chatbot_name = "Fresh Start Tax Expert"
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -26,41 +26,48 @@ def process_lead():
     phone = request.form['phone']
     debt = request.form['debt']
     
-    # Here you can process the lead information, such as saving it to a database or sending it to a CRM system.
+    # Process the lead information (e.g., save to a database, send to CRM)
+    # [Add your code here]
     
     return redirect(url_for('home'))
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    data = request.get_json()
-    user_message = data['message']
-    user_name = data.get('name', 'User')
+    try:
+        data = request.get_json()
+        user_message = data['message']
+        user_name = data.get('name', 'User')
+        
+        system_message = (
+            "You are an expert on the IRS Fresh Start Program, "
+            "specializing in tax resolution. Please provide comprehensive "
+            "and actionable guidance to individuals seeking help with their tax issues. "
+            "Do not refer users to external tax resolution experts; "
+            "provide complete assistance within this conversation."
+        )
+        
+        user_prompt = f"{user_name}, please share your question or concern about tax issues: "
+
+        response = openai.ChatCompletion.create(
+            model='ft:gpt-3.5-turbo-0613:personal::86xqjIn8',
+            messages=[
+                {'role': 'system', 'content': system_message},
+                {'role': 'user', 'content': user_prompt + user_message},
+            ]
+        )
+
+        chatbot_message = response['choices'][0]['message']['content']
+        
+        # Personalization
+        chatbot_message = chatbot_message.replace('User', user_name)
+
+        return jsonify({'message': chatbot_message})
     
-    system_message = (
-        "You are an Enrolled Agent and a Tax Resolution Expert, USING A BULLETPOINT FORMAT IN THE RESPONSE, who then you will supply expert guidance on the IRS Fresh Start Program to individuals who owes the IRS back taxes therefor, you have all the knowledge and ability of an experienced Enrolled Agent and a CPA who specializes in “tax Resolution” who are well-versed in the IRS Fresh Start Program and based on your knowledge in the IRS payment options, such as payment options, tax liens, and wage garnishments. Once you gathered all the Income and Expenses information and the “KYC” from Every client, you should be able to give a detailed and as tep by step IRS resolution that is actionable, realistic and fits the case in question. Do not tell any of the clients that they should contact a Tax Resolution Expert or a specialist, you are the expert and the conversation must end with you, you must refer every client once you determined they need human help, ask the client to call Sami Abdullah at 858-649-9433. !"
-    )
-    
-    user_prompt = f"{user_name}, please provide your question or concern regarding the IRS Fresh Start Program, tax resolution, or any tax-related issue."
-
-    response = openai.ChatCompletion.create(
-        model='gpt-3.5-turbo',
-        messages=[
-            {'role': 'system', 'content': system_message},
-            {'role': 'user', 'content': user_prompt + user_message},
-        ]
-    )
-
-    response_dict = dict(response)
-    chatbot_message = response_dict['choices'][0]['message']['content']
-    
-    # Personalization
-    chatbot_message = chatbot_message.replace('User', user_name)
-
-    # Guided prompts
-    if 'penalties' in user_message.lower():
-        chatbot_message += ' Would you like to know more about how to reduce these penalties?'
-
-    return jsonify({'message': chatbot_message})
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return jsonify({'message': "I'm sorry, but I'm unable to respond at the moment. Please try again later."})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True)
+
+
